@@ -1,3 +1,4 @@
+<?php require_once "session.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,8 +23,8 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__wobble rounded-circle" src="./dist/img/pp.jpeg" alt="AdminLTELogo" height="150"
-                width="150">
+            <h1><i class="fas fa-spinner fa-spin text-primary"></i></h1> 
+            <h4>Loading</h4>
         </div>
 
         <!-- Navbar -->
@@ -87,7 +88,7 @@
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#">Sold Ticket</a></li>
                                 <li class="breadcrumb-item active">Dashboard</li>
                             </ol>
                         </div><!-- /.col -->
@@ -122,7 +123,7 @@
 
         <!-- Main Footer -->
         <footer class="main-footer">
-            <strong>Copyright &copy;2022 <a href="#">Crypot Tech</a>.</strong>
+            <strong>Copyright &copy;2022 <a href="#">Gibeon TV</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
                 <b>MustaDev</b> MD

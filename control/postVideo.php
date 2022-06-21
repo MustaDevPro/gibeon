@@ -23,7 +23,7 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <h1><i class="fas fa-spinner fa-spin text-primary"></i></h1> 
+           <h1><i class="fas fa-spinner fa-spin text-primary"></i></h1> 
             <h4>Loading</h4>
         </div>
 
@@ -88,7 +88,7 @@
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Profiles</a></li>
+                                <li class="breadcrumb-item"><a href="#">Videos</a></li>
                                 <li class="breadcrumb-item active">Dashboard</li>
                             </ol>
                         </div><!-- /.col -->
@@ -123,7 +123,7 @@
 
         <!-- Main Footer -->
         <footer class="main-footer">
-            <strong>Copyright &copy;2022 <a href="#">Gibeon TV</a>.</strong>
+            <strong>Copyright &copy;2022 <a href="#">Gibeon</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
                 <b>MustaDev</b> MD

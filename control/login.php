@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,13 +23,23 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class=" animation__wobble rounded-circle" src="./dist/img/pp.jpeg" alt="AdminLTELogo" height="150"
-                width="150">
+            <h1><i class="fas fa-spinner fa-spin text-primary"></i></h1> 
+            <h4>Loading</h4>
         </div>
         <div class="row flex-column justify-content-center align-items-center" style="height:90vh;">
             <div class="card card-secondary" style="width:60vh;">
-                <div class=" card-header text-center">Admin Login</div>
-                <form action="./check/valdate_login.php" class="px-4" method="post">
+                <?php
+                    if(isset($_SESSION['error'])){
+                        print "
+                        <div class='alert alert-danger text-warning alert-dismissible fade show' role='alert'>
+                            <strong>Error:</strong>".$_SESSION['error']."
+                        </div>
+                        ";
+                        unset($_SESSION['error']);
+                    }
+                ?>
+                <div class=" card-header text-center">Gibeon TV</div>
+                <form action="./valdate_login.php" class="px-4" method="post">
                     <div class="card-header text-center">
                         <input type="text" name="username" class="form-control my-3" placeholder="Username or Email">
                         <input type="password" name="pasword" class="form-control my-3" placeholder="Enter password">

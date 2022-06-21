@@ -1,4 +1,4 @@
-<a href="index3.html" class="brand-link">
+<a href="index.php" class="brand-link">
     <img src="./dist/img/pp.jpeg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
     <span class="brand-text font-weight-light">Mustapha Iconic</span>
 </a>
@@ -21,29 +21,29 @@
 
             <li class="nav-item">
                 <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-shopping-cart"></i>
+                    <i class="nav-icon fas fa-users"></i>
                     <p>
-                        Products
+                        Posts
                         <i class="fas fa-angle-left right"></i>
                     </p>
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
                         <a href="./addProduct.php" class="nav-link">
-                            <i class="fas fa-cart-plus nav-icon"></i>
-                            <p>Add Product</p>
+                            <i class="fas fa-plus nav-icon"></i>
+                            <p>Add Post</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="./pending.php" class="nav-link">
                             <i class="fa fa-hourglass-half nav-icon"></i>
-                            <p>Pending</p>
+                            <p>Pending Ticket</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="./soldProdct.php" class="nav-link">
                             <i class="fa fa-check-square nav-icon"></i>
-                            <p>Sold</p>
+                            <p>Sold Tickets</p>
                         </a>
                     </li>
                 </ul>
@@ -53,15 +53,22 @@
                 <a href="#" class="nav-link">
                     <i class="nav-icon fa fa-rocket"></i>
                     <p>
-                        Services
+                        Videos
                         <i class="fas fa-angle-left right"></i>
                     </p>
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="./addService.php" class="nav-link">
-                            <i class="fas fa-plus nav-icon"></i>
-                            <p>Add Service</p>
+                        <a href="./postVideo.php" class="nav-link">
+                            <i class="fas fa-youtube-plus nav-icon"></i>
+                            <p>Create Video</p>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="./soldProdct.php" class="nav-link">
+                            <i class="fa fa-check-square nav-icon"></i>
+                            <p>Manage Videos</p>
                         </a>
                     </li>
                 </ul>
@@ -90,7 +97,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="./logout.php" class="nav-link">
-                            <i class="fab fa-sign-out nav-icon"></i>
+                            <i class="fas fa-sign-out-alt nav-icon"></i>
                             <p>Sign Out</p>
                         </a>
                     </li>
