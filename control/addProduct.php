@@ -100,6 +100,18 @@
             <!-- Main content -->
             <section class="content">
                 <form action="./postCelem.php" method="post" enctype="multipart/form-data" class="p-0 m-0">
+                    <?php if(isset($_SESSION['fail'])){
+                        ?>
+                        <div class="alert alert-danger alert-dismissible fade text-warning show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            <span class="sr-only">Close</span>
+                        </button>
+                        <strong>Error:</strong> <?php print $_SESSION['fail']; unset($_SESSION['fail']); ?>
+                    </div>
+                        <?php
+                    }?>
+                    
                     <div class="row bg-dark px-5 my-3">
                         <div class="col-md-6 col-sm-12">
                             <div class="card card-secondary">
