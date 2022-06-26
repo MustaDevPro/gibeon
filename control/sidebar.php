@@ -1,6 +1,6 @@
 <a href="index.php" class="brand-link">
     <img src="./dist/img/pp.jpeg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">Mustapha Iconic</span>
+    <span class="brand-text font-weight-light"><?php print $_SESSION['user']['username'];?></span>
 </a>
 
 <!-- Sidebar -->
