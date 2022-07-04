@@ -1,3 +1,4 @@
+<?php require_once "session.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,8 +23,8 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__wobble rounded-circle" src="./dist/img/pp.jpeg" alt="AdminLTELogo" height="150"
-                width="150">
+        <h1><i class="fas fa-spinner fa-spin text-primary"></i></h1> 
+            <h4>Loading</h4>
         </div>
 
         <!-- Navbar -->
@@ -87,7 +88,7 @@
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#">Posts</a></li>
                                 <li class="breadcrumb-item active">Dashboard</li>
                             </ol>
                         </div><!-- /.col -->
@@ -98,17 +99,50 @@
 
             <!-- Main content -->
             <section class="content">
-                <div class="row bg-info">
-                    <div class="card card-secondary">
-                        <div class="card-header">Welcome back</div>
-                        <div class="card-body">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe,
-                            perspiciatis!
-                        </div>
-                        <div class="card-footer"> my card footer</div>
+                <form action="./postCelem.php" method="post" enctype="multipart/form-data" class="p-0 m-0">
+                    <?php if(isset($_SESSION['fail'])){
+                        ?>
+                        <div class="alert alert-danger alert-dismissible fade text-warning show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            <span class="sr-only">Close</span>
+                        </button>
+                        <strong>Error:</strong> <?php print $_SESSION['fail']; unset($_SESSION['fail']); ?>
                     </div>
-                </div>
-                <!--/. container-fluid -->
+                        <?php
+                    }?>
+                    
+                    <div class="row bg-dark px-5 my-3">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="card card-secondary">
+                                <div class="card-header">
+                                    <strong>Add New Produc</strong>
+                                </div>
+                                <div class="card-body">
+                                    <input type="text" name="prodName" placeholder="Location"
+                                        class="form-control my-2">
+                                    <input type="text" name="price" placeholder="Prodcut price"
+                                        class="form-control my-2">
+                                    <textarea name="desc" placeholder="Description"
+                                        class="form-control my-2"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="card card-secondary">
+                                <div class="card-header">
+                                    <strong>Choose a photo</strong>
+                                </div>
+                                <div class="card-body">
+                                    <input type="file" name="file" id="" class="form-control">
+                                </div>
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary w-100">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </section>
             <!-- /.content -->
         </div>
@@ -122,7 +156,7 @@
 
         <!-- Main Footer -->
         <footer class="main-footer">
-            <strong>Copyright &copy;2022 <a href="#">Crypot Tech</a>.</strong>
+            <strong>Copyright &copy;2022 <a href="#">Gibeon</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
                 <b>MustaDev</b> MD
