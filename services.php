@@ -45,13 +45,7 @@
         }
         
     }
-    @media screen and (max-width:750) {
-         .home-products{
-            /* display: grid;
-            grid-template-columns: 1fr;
-            grid-gap: 3; */
-        }
-    }
+
 </style>
 </head>
 <body >
@@ -90,39 +84,61 @@
         <!-- <div class="overlay" style="background:transparent;margin-top:0px"> -->
             <!-- <div class="container"> -->
                <div class="row" style="background-image:linear-gradient(to right, blue, purple);margin:0px 0px; padding:2rem 2rem">
-                    <div class="col-md-5 col-sm-12" style="overflow-y:scroll; height:70vh;">
-                        <div class="card" style="width:50vh; padding-bottom:1rem;">
+                    <div class="col-md-5 col-sm-12" style="height:70vh;">
+                        <?php
+                            $sql = "SELECT * FROM posts WHERE `status`= 1 ORDER BY `time` DESC LIMIT 1";
+                            $res = mysqli_query($conn,$sql);
+                            $data = mysqli_fetch_array($res);
+                            if(mysqli_num_rows($res)>0){
+                        ?>
+                        <div class="card" style="width:69vh; padding-bottom:1rem;">
                             <div class="card-body" style="text-align:center;">
-                                <img src="images/main.jpg" width="100%">
+                                <img src="./assets/images/<?php print $data['image'];?>" width="100%">
                             </div>
                             <div class="card-footer text-center" style="background:rgba(0,0,0,.7);padding-bottom:1rem;">
-                                <div class="card-header">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, voluptate.</div>
-                                <a href="buy.php?bid=5000" class="btn btn-success rounded px-4"
+                                <div class="card-header">
+                                    <?php print $data['description'];?>
+                                </div>
+                                <a href="buy.php?bid=<?php print $data['id'];?>&price=<?php print $data['price'];?>&des=<?php print $data['description'];?>" class="btn btn-success rounded px-4"
                                 style="border-radius:4px;">
-                                    Buy Ticket 5000 Rwf
+                                    Buy Ticket <?php print $data['price'];?> Rwf
                                 </a>
                             </div>
                         </div>
                         
+                    <?php  }else{ ?>
+                        <div class="card" style="width:69vh; padding-bottom:1rem;">
+                            <div class="card-body" style="text-align:center;height:50vh;">
+                                <h1 class="p-5">There is no available pary in this moment</h1>
+                            </div>
+                            <div class="card-footer text-center" style="background:rgba(0,0,0,.7);padding:5rem;border-radius:10px;">
+                                <div class="card-header">
+                                    <h2  style="line-height:1.5">Please wait a moment We will inform you later</h2>
+                                </div>
 
+                            </div>
+                        </div>
+                    <?php  } ?>
                     </div>
                     <div class="col-md-7 col-sm-12 d-flex">
-                        <div class="card" style="padding-bottom:1rem; display:flex;">
-                            <div class="card-body" style="text-align:center;">
-                                <img src="images/main.jpg" width="100%">
+                        <?php
+                        $sql = "SELECT * FROM posts ORDER BY `time` DESC LIMIT 10";
+                        $res = mysqli_query($conn,$sql);
+                        while($data = mysqli_fetch_array($res)){
+                        ?>
+                          <div class="card" style="padding-bottom:1rem; display:flex;">
+                            <div class="card-body bg-dark" style="text-align:center;">
+                                <img src="./assets/images/<?php print $data['image'];?>" width="200px">
                             </div>
-                            <div style="padding:0rem 0rem 2rem 2rem">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta itaque maxime unde culpa distinctio quia doloremque quas quod amet. Voluptatum?
+                            <div style="padding:0rem 0rem 2rem 2rem;width:120vh;">
+                            <?php print $data['description'];?>
                             </div>
-                        </div>
-                        <div class="card" style="padding-bottom:1rem; display:flex;">
-                            <div class="card-body" style="text-align:center;">
-                                <img src="images/main.jpg" width="100%">
-                            </div>
-                            <div style="padding:0rem 0rem 2rem 2rem">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta itaque maxime unde culpa distinctio quia doloremque quas quod amet. Voluptatum?
-                            </div>
-                        </div>
+                        </div>  
+                        <?php
+                        }
+                        ?>
+                        
+                       
                         
                     </div>
             </div>
@@ -136,28 +152,7 @@
 
     <!-- [INSPIRATION]
     ============================================================================================================================-->
-    <section class="inspiration" id="four">
-        <!-- <div class="overlay"> -->
-            <div class="container">
-                <div class="row">
-                  <article class="col-md-12 text-center">
-                      <div class="intermediate-container">
-                          <div class="subheading">
-                              <h4>Are You Ready To <span class="themecolor">Enjoy?</span></h4>
-                          </div>
-                        <div class="heading">
-                            <h2>inspire your customer here!</h2>
-                          </div>
-                                      
-                          <div class="">
-                            <a class="btn btn-custom-outline" href="#"><span>get started</span></a>
-                          </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        <!-- </div> -->
-    </section>
+    
     
     
     <!-- [/INSPIRATION]
@@ -193,8 +188,7 @@
                     <!--social-->
                     <ul class="social">
                         <li><a href="https://twitter.com/MustaphaIconic?t=kCyzop4wvjXIxraGBNDR6g&s=09" target="_blank"><i class="fa fa-twitter "></i></a></li>
-                        <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="https://youtu.be/of3hzZZ1Mxc" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+                        <li><a href="https://www.youtube.com/c/Gibeonchristiantv" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
                         <li><a href="https://www.instagram.com/laosshivan" target="_blank"><i class="fa fa-instagram"></i></a></li>
                         <li><a href="https://wa.me/+250787328089?text=I'm%20interested%20in%20your%20Web%20for%20Development" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
                     </ul>

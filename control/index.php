@@ -82,8 +82,8 @@
                 <?php if(isset($_SESSION['success'])){
                     ?>
                     <div class="alert alert-success text-center alert-dismissible fade show" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+                        <button type="button" class="close text-danger" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true" class="text-danger">&times;</span>
                             <span class="sr-only">Close</span>
                         </button>
                         <strong>Status:</strong> <?php print $_SESSION['success']; unset($_SESSION['success']); ?>
@@ -122,7 +122,7 @@
                                 <span class="info-box-icon"><i class="fas fa-tag"></i></span>
 
                                 <div class="info-box-content">
-                                    <span class="info-box-text">Inventory</span>
+                                    <span class="info-box-text">Visitors</span>
                                     <span class="info-box-number">5,200</span>
                                 </div>
                                 <!-- /.info-box-content -->
@@ -132,21 +132,12 @@
                                 <span class="info-box-icon"><i class="far fa-heart"></i></span>
 
                                 <div class="info-box-content">
-                                    <span class="info-box-text">Mentions</span>
+                                    <span class="info-box-text">Clients</span>
                                     <span class="info-box-number">92,050</span>
                                 </div>
                                 <!-- /.info-box-content -->
                             </div>
                             <!-- /.info-box -->
-                            <div class="info-box mb-3 bg-danger mx-1">
-                                <span class="info-box-icon"><i class="fas fa-cloud-download-alt"></i></span>
-
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Downloads</span>
-                                    <span class="info-box-number">114,381</span>
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
                             <!-- /.info-box -->
                             <div class="info-box mb-3 bg-info mx-1">
                                 <span class="info-box-icon"><i class="far fa-comment"></i></span>
