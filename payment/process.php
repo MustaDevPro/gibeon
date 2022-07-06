@@ -25,7 +25,7 @@ include('../config/config.php');
                 CURLOPT_CUSTOMREQUEST => "GET",
                 CURLOPT_HTTPHEADER => array(
                   "Content-Type: application/json",
-                  "Authorization: Bearer FLWSECK-35b1640dfc57f82b5365f7b73b4886d2-X"
+                  "Authorization: Bearer FLWSECK_TEST-79dd879c060de8f09417d49e55afafec-X"
                 ),
               ));
               
@@ -45,8 +45,8 @@ include('../config/config.php');
                     // insert transaction in db here
                     $today = date('y-m-d');
                         $transactionQuery = mysqli_query($conn,"INSERT INTO 
-                        `tbltransactions`(`transactionCode`, `ClientId`, `Amount`, `startDate`, `Status`) 
-                        VALUES ('$txid','$email','$amountToPay','$today','$status')");
+                        `tbltransactions`(`transactionCode`, `ClientId`, `Amount`,`Status`) 
+                        VALUES ('$txid','$email','$amountToPay','$status')");
 
                     if ($transactionQuery) {
                         ?>
@@ -62,7 +62,7 @@ include('../config/config.php');
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Custom styles for this template-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
 </head>
 
 <body>
@@ -78,7 +78,7 @@ include('../config/config.php');
                             <h5 class="card-title">Payment Status</h5>
                             <p class="card-text">e-mail: <?php echo $email;?></p>
                             <p class="card-text">Amount : <?php echo $amountToPay;?> Rwf</p>
-                            <a href="../product.php" class="btn btn-primary">Go to Login</a>
+                            <a href="../services.php" class="btn btn-primary">Return to Website</a>
                         </div>
                     </div>
                 </div>
@@ -95,7 +95,7 @@ include('../config/config.php');
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
 </body>

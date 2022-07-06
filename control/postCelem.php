@@ -16,8 +16,8 @@ VALUES ('$name','$price','$desc','$fileName')";
                 header("location:index.php");
             }
         }else{
-            $_SESSION['fail'] = "Successfully Posted!";
-            header("location:index.php");
+            $_SESSION['fail'] = "Failed ro Post!";
+            header("location:addProduct.php");
         }
     }else{
         $_SESSION['fail'] = "extension not allowed, please choose a JPEG or PNG file.";

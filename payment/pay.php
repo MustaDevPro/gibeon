@@ -4,7 +4,7 @@ if (isset($_POST['pay'])) {
 	$email=$_POST['email'];
 	$amount=$_POST['amount'];
 	$Product=$_POST['proid'];
-    $ProductName = "Payment to Gibeon TV ";
+    $ProductName = "Payment to Gibeon TV";
 
 	  $request = [
         'tx_ref' => time(),
@@ -41,7 +41,7 @@ if (isset($_POST['pay'])) {
     CURLOPT_CUSTOMREQUEST => 'POST',
     CURLOPT_POSTFIELDS => json_encode($request),
     CURLOPT_HTTPHEADER => array(
-        'Authorization: Bearer FLWSECK-35b1640dfc57f82b5365f7b73b4886d2-X',
+        'Authorization: Bearer FLWSECK_TEST-79dd879c060de8f09417d49e55afafec-X',
         'Content-Type: application/json'
     ),
     ));
@@ -67,13 +67,16 @@ if (isset($_POST['pay'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
 </head>
+
 <body class="bg-dark">
-    
+
 </body>
+
 </html>

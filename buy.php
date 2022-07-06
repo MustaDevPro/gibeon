@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,35 +19,39 @@
 
 </head>
 
-<body class="bg-dark d-flex justify-content-center align-items-center" style="background-image: url(images/cinemaback.jpg); width: 100%;height: 100%; position: absolute;">
+<body class="bg-dark d-flex justify-content-center align-items-center"
+    style="background-image: url(images/cinemaback.jpg); width: 100%;height: 100%; position: absolute;">
 
-            <div class="p-5 shadow" style="width:40%; height:50vh;">
-                <div class="text-center">
-                    <h1 class="h4 text-white mb-4">Gibeon TV Easy Pay</h1>
-                </div>
+    <div class="p-5 shadow" style="width:40%; height:50vh;">
+        <div class="text-center">
+            <h1 class="h4 text-white mb-4">Gibeon TV Easy Pay</h1>
+        </div>
 
-                <form class="user" action="payment/pay.php" method="POST">
-                    <div class="form-group">
-                        <label for="floatingInputValue" class="text-white">Enter Email</label>
-                        <input type="text" name="email" class="form-control form-control-user" aria-describedby="emailHelp"
-                            placeholder="Enter Email" require>
-                    </div> 
-                    
-                    
-                    <div class="form-group">
-                        <label for="floatingInputValue" class="text-white">Amount to be paid: <span class="text-danger"><?php print $_GET['price'];?></span></label>
-                        <input type="hidden" name="amount" value="<?php print $_GET['price'];?>">
-                        <input type="hidden" name="proid" value="<?php print $_GET['desc'];?>"><br>
-                        <label for="floatingInputValue" class="text-white"> <h5><?php print $_GET['des'];?></h5></label>
-
-                    </div>
-                    <input type="submit" value="Pay Now" name="pay" class="btn btn-primary w-100">
-                    
-                </form>
+        <form class="user" action="payment/pay.php" method="POST">
+            <div class="form-group">
+                <label for="floatingInputValue" class="text-white">Enter Email</label>
+                <input type="text" name="email" class="form-control form-control-user" aria-describedby="emailHelp"
+                    placeholder="Enter Email" require>
             </div>
 
 
+            <div class="form-group">
+                <label for="floatingInputValue" class="text-white">Amount to be paid: <span
+                        class="text-danger"><?php print $_GET['price'];?></span></label>
+                <input type="hidden" name="amount" value="<?php print $_GET['price'];?>">
+                <input type="hidden" name="proid" value="<?php print $_GET['desc'];?>"><br>
+                <label for="floatingInputValue" class="text-white">
+                    <h5><?php print $_GET['desc'];?></h5>
+                </label>
+
+            </div>
+            <input type="submit" value="Pay Now" name="pay" class="btn btn-primary w-100">
+
+        </form>
+    </div>
+
+
 </body>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-  
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </html>

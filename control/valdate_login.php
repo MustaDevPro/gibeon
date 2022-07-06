@@ -4,7 +4,7 @@ require_once "../config/config.php";
 // print_r($_POST);
 $user = $_POST['username'];
 $pass = $_POST['pasword'];
-$sql = "SELECT * FROM `user` WHERE `usename` = '$user' OR `email` = '$user' AND `password` = '$pass'";
+$sql = "SELECT * FROM `users` WHERE `username` = '$user' OR `email` = '$user' AND `password` = '$pass'";
 $res = mysqli_query($conn,$sql);
 if(mysqli_num_rows($res)>0){
     $_SESSION['user'] = $_POST;
