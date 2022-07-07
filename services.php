@@ -129,20 +129,31 @@
                     <div>More Events</div>
                     <div>
                         <ul style="display:flex;justify-content:space-between;">
-                            <li><a href="services.php?catype=gospal" class="btn btn-primary"
-                                    style="border-radius:50px; margin-right:2px;">Gospel
-                                    concert</a></li>
-                            <li><a href="services.php?catype=basket" class="btn btn-primary"
-                                    style="border-radius:50px; margin-right:2px;">Basket
-                                    Ball</a></li>
-                            <li><a href="services.php?catype=fifa" class="btn btn-primary"
-                                    style="border-radius:50px; marigin-right:2px;">FiFA</a></li>
+                            <?php
+                        $sqli = "SELECT * FROM `category`";
+                        $result = mysqli_query($conn, $sqli);
+                        if (mysqli_num_rows($result) > 0) {
+                            while($row = mysqli_fetch_array($result)) {
+                            ?>
+                            <li><a href="services.php?selectType=<?php print $row['catId']; ?>" class="btn btn-primary"
+                                    style="border-radius:50px; margin-right:2px;">
+                                    <?php print $row['name']; ?>
+                                </a>
+                            </li>
+                            <?php
+                            }
+                        }
+                        ?>
+
                         </ul>
                     </div>
                 </div>
                 <?php
-                 $sql = "SELECT * FROM `posts`"; 
-                //  $sql = "SELECT * FROM `posts` WHERE `id` = ".$_GET['params']." AND  `status` = 1 LIMIT 1"; 
+                if(isset($_GET['selectType'])){
+                    $sql = "SELECT * FROM `posts` WHERE `category` = ".$_GET['selectType']." AND  `status` = 1"; 
+                }else{
+                    $sql = "SELECT * FROM `posts` WHERE `status` = 1"; 
+                }
                  $res = mysqli_query($conn,$sql);
                  if(mysqli_num_rows($res)>0){
                     while($data = mysqli_fetch_array($res)){

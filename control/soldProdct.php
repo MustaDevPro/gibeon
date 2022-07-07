@@ -1,4 +1,4 @@
-<?php require_once "session.php" ?>
+<?php require_once "session.php"; require_once '../config/config.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +23,7 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <h1><i class="fas fa-spinner fa-spin text-primary"></i></h1> 
+            <h1><i class="fas fa-spinner fa-spin text-primary"></i></h1>
             <h4>Loading</h4>
         </div>
 
@@ -100,13 +100,47 @@
             <!-- Main content -->
             <section class="content">
                 <div class="row bg-info">
-                    <div class="card card-secondary">
-                        <div class="card-header">Welcome back</div>
-                        <div class="card-body">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe,
-                            perspiciatis!
+                    <div class="card card-secondary  mx-5 w-100 my-2">
+                        <div class="card-header">Bought Tickets</div>
+                        <div class="card-body" style="width:100%;">
+                            <table class="table table-striped w-100">
+                                <thead>
+                                    <th>No</th>
+                                    <th>Transaction Id</th>
+                                    <th>Email</th>
+                                    <th>Amount Paid</th>
+                                    <th>Time</th>
+                                    <th>Status</th>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $sql = "SELECT * FROM `tbltransactions`";
+                                    $res = mysqli_query($conn, $sql);
+                                    $count = 1;
+                                    if(mysqli_num_rows($res) > 0){
+                                        while($data = mysqli_fetch_array($res)){
+                                        ?>
+                                    <tr>
+                                        <td> <?php print $count; ?></td>
+                                        <td><?php print $data['transactionCode']; ?></td>
+                                        <td><?php print $data['ClientId'] ?></td>
+                                        <td><?php print $data['Amount'] ?></td>
+                                        <td><?php print $data['startDate'] ?></td>
+                                        <td><?php print $data['Status'] == 1 ?"Success":"Failed"; ?></td>
+                                    </tr>
+                                    <?php 
+                                    $count++;
+                                            }
+                                    }else{
+                                        ?>
+                                    <td>No transtaction Found</td>
+                                    <?php
+                                    }?>
+                                </tbody>
+
+                            </table>
                         </div>
-                        <div class="card-footer"> my card footer</div>
+                        <div class="card-footer text-center"> my card footer</div>
                     </div>
                 </div>
                 <!--/. container-fluid -->

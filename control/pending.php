@@ -23,7 +23,7 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <h1><i class="fas fa-spinner fa-spin text-primary"></i></h1> 
+            <h1><i class="fas fa-spinner fa-spin text-primary"></i></h1>
             <h4>Loading</h4>
         </div>
 
@@ -88,7 +88,7 @@
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Pending Ticket</a></li>
+                                <li class="breadcrumb-item"><a href="#">Add Category</a></li>
                                 <li class="breadcrumb-item active">Dashboard</li>
                             </ol>
                         </div><!-- /.col -->
@@ -99,15 +99,36 @@
 
             <!-- Main content -->
             <section class="content">
-                <div class="row bg-info">
-                    <div class="card card-secondary">
-                        <div class="card-header">Welcome back</div>
-                        <div class="card-body">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe,
-                            perspiciatis!
+                <div class="row bg-dark">
+                    <div class="col"></div>
+                    <div class="col">
+                        <div class="card card-secondary">
+                            <div class="card-header">
+                                <strong>Add New Category</strong>
+                            </div>
+                            <div class="card-body">
+                                <form action="saveCat.php" method="post">
+                                    <?php if(isset($_SESSION['fail'])){
+                        ?>
+                                    <div class="alert alert-danger alert-dismissible fade text-warning show"
+                                        role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            <span class="sr-only">Close</span>
+                                        </button>
+                                        <strong>Error:</strong>
+                                        <?php print $_SESSION['fail']; unset($_SESSION['fail']); ?>
+                                    </div>
+                                    <?php
+                    }?>
+                                    <input type="text" name="category" placeholder="Category name"
+                                        class="form-control my-2">
+                                    <button type="submit" class="btn btn-primary w-100">Save</button>
+                                </form>
+                            </div>
                         </div>
-                        <div class="card-footer"> my card footer</div>
                     </div>
+                    <div class="col"></div>
                 </div>
                 <!--/. container-fluid -->
             </section>

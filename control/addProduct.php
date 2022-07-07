@@ -1,4 +1,4 @@
-<?php require_once "session.php" ?>
+<?php require_once "session.php";require_once "../config/config.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +23,7 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-        <h1><i class="fas fa-spinner fa-spin text-primary"></i></h1> 
+            <h1><i class="fas fa-spinner fa-spin text-primary"></i></h1>
             <h4>Loading</h4>
         </div>
 
@@ -102,16 +102,16 @@
                 <form action="./postCelem.php" method="post" enctype="multipart/form-data" class="p-0 m-0">
                     <?php if(isset($_SESSION['fail'])){
                         ?>
-                        <div class="alert alert-danger alert-dismissible fade text-warning show" role="alert">
+                    <div class="alert alert-danger alert-dismissible fade text-warning show" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             <span class="sr-only">Close</span>
                         </button>
                         <strong>Error:</strong> <?php print $_SESSION['fail']; unset($_SESSION['fail']); ?>
                     </div>
-                        <?php
+                    <?php
                     }?>
-                    
+
                     <div class="row bg-dark px-5 my-3">
                         <div class="col-md-6 col-sm-12">
                             <div class="card card-secondary">
@@ -119,8 +119,7 @@
                                     <strong>Add New Produc</strong>
                                 </div>
                                 <div class="card-body">
-                                    <input type="text" name="prodName" placeholder="Location"
-                                        class="form-control my-2">
+                                    <input type="text" name="prodName" placeholder="Location" class="form-control my-2">
                                     <input type="text" name="price" placeholder="Prodcut price"
                                         class="form-control my-2">
                                     <textarea name="desc" placeholder="Description"
@@ -131,10 +130,31 @@
                         <div class="col-md-6 col-sm-12">
                             <div class="card card-secondary">
                                 <div class="card-header">
+
                                     <strong>Choose a photo</strong>
                                 </div>
                                 <div class="card-body">
                                     <input type="file" name="file" id="" class="form-control">
+                                    <strong>Choose category</strong>
+                                    <select type="text" name="category" placeholder="Location"
+                                        class="form-control my-2">
+                                        <?php 
+                                        $sqlc = "SELECT * FROM category";
+                                        $res = mysqli_query($conn,$sqlc);
+                                        if(mysqli_num_rows($res)>0){
+                                            while($data = mysqli_fetch_array($res)){
+                                        ?>
+                                        <option value="<?php print $data['catId']?>"><?php print $data['name']?>
+                                        </option>
+                                        <?php
+                                         }
+                                        }else{ ?>
+                                        <option disbled>No category avairable</option>
+                                        <?php
+                                        }
+                                    ?>
+
+                                    </select>
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary w-100">Save</button>

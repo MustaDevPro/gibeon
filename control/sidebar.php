@@ -37,7 +37,7 @@
                     <li class="nav-item">
                         <a href="./pending.php" class="nav-link">
                             <i class="fa fa-hourglass-half nav-icon"></i>
-                            <p>Pending Ticket</p>
+                            <p>Add Category</p>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -64,7 +64,7 @@
                             <p>Create Video</p>
                         </a>
                     </li>
-                    
+
                     <li class="nav-item">
                         <a href="./soldProdct.php" class="nav-link">
                             <i class="fa fa-check-square nav-icon"></i>

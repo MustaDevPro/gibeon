@@ -2,13 +2,14 @@
 session_start();
 require_once "../config/config.php";
 $name = $_POST['prodName'];
+$category = $_POST['category'];
 $price = $_POST['price'];
 $desc = $_POST['desc'];
 $file = $_FILES['file']['tmp_name'];
 $fileName = $_FILES['file']['name'];
 $file_ext=$_FILES['file']['type'];
-$sql = "INSERT INTO `posts`( `location`, `price`, `description`, `image`) 
-VALUES ('$name','$price','$desc','$fileName')";
+$sql = "INSERT INTO `posts`( `location`, `price`, `description`, `image`,`category`) 
+VALUES ('$name','$price','$desc','$fileName',$category)";
       if($file_ext == 'image/jpeg' or $file_ext == 'image/jpg' or $file_ext == 'image/png' or $file_ext == 'image/gif'){
         if(move_uploaded_file($file,"../assets/images/".$fileName)){
             if(mysqli_query($conn,$sql)){
@@ -16,7 +17,7 @@ VALUES ('$name','$price','$desc','$fileName')";
                 header("location:index.php");
             }
         }else{
-            $_SESSION['fail'] = "Failed ro Post!";
+            $_SESSION['fail'] = "Failed to Post!";
             header("location:addProduct.php");
         }
     }else{
